@@ -14,3 +14,15 @@ services:
       - key: MONGODB_URI
         # leave value empty here; configure in Render's dashboard or via CLI
         value: ""
+      - key: JWT_SECRET
+        value: ""
+      - key: EMAIL_HOST
+        value: ""
+      - key: EMAIL_PORT
+        value: ""
+      - key: EMAIL_USER
+        value: ""
+      - key: EMAIL_PASS
+        value: ""
+      - key: EMAIL_FROM
+        value: ""
