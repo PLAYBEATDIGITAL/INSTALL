@@ -1,0 +1,85 @@
+{
+  "version": 2,
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "routes": [
+    {
+      "src": "/admin(.*)",
+      "headers": {
+        "X-Robots-Tag": "noindex, nofollow",
+        "Cache-Control": "no-store, no-cache, must-revalidate"
+      },
+      "dest": "/admin$1"
+    },
+    {
+      "src": "/(.*)\\.html",
+      "dest": "/$1"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        }
+      ]
+    },
+    {
+      "source": "/admin(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "no-store"
+        }
+      ]
+    },
+    {
+      "source": "/static/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/(shared\\.css|shared\\.js|products\\.js)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400, stale-while-revalidate=3600"
+        }
+      ]
+    }
+  ],
+  "experimentalServices": {
+    "playbeat-backend": {
+      "type": "web",
+      "routePrefix": "/",
+<<<<<<< HEAD
+      "buildCommand": "npm install",
+      "entrypoint": "server.js"
+    }
+  }
+}
+=======
+      "buildCommand": "npm install"
+      "entrypoint": "server.js"
+    }
+  }
+}
+>>>>>>> fb0772b (chore: handle missing MongoDB URI; export Product model; add frontend Vercel config and deploy docs; add .env.example and .gitignore)

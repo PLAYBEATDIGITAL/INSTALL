@@ -1,0 +1,16 @@
+# Render service configuration for PlayBeat backend
+# Import this repository in Render and Render will use these defaults.
+services:
+  - type: web
+    name: playbeat-backend
+    env: node
+    region: oregon
+    plan: free
+    branch: main
+    buildCommand: npm install
+    startCommand: npm start
+    # Note: set secrets/env vars in the Render dashboard (MONGODB_URI)
+    envVars:
+      - key: MONGODB_URI
+        # leave value empty here; configure in Render's dashboard or via CLI
+        value: ""
